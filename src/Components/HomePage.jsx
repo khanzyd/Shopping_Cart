@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setProducts } from "../../features/products";
-import Card from "../card/Card";
+import { setProducts } from "../features/products";
+import Card from "./Card";
 
 const HomePage = () => {
   let dispatch = useDispatch();
-  let {products, isLoading} = useSelector((store) => store.products);
+  let { products, isLoading } = useSelector((store) => store.products);
 
   useEffect(() => {
     fetch("https://dummyjson.com/products")
@@ -27,7 +27,7 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center content-center">
+      <div className="flex flex-wrap justify-center content-center md:mt-10 mt-5">
         {products.map((item) => {
           return <Card key={item.id} {...item} />;
         })}

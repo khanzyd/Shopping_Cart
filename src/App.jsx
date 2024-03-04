@@ -1,27 +1,34 @@
-import { useState } from 'react'
-import {createBrowserRouter, createRoutesFromElements, RouterProvider, Route, BrowserRouter, Routes } from 'react-router-dom'
+import { useState } from "react";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+  Route,
+  BrowserRouter,
+  Routes,
+} from "react-router-dom";
 
-import HomePage from './Components/homePage/HomePage'
-import Layout from "./Components/Layout/Layout"
-
+import HomePage from "./Components/HomePage";
+import Layout from "./Components/Layout";
+import Cart from "./Components/Cart";
 
 function App() {
-
   const allRoutes = createRoutesFromElements(
-    <Route path="/" element={<Layout/>} >
-      <Route index element={<HomePage/>}/>
+    <Route path="/" element={<Layout />}>
+      <Route index element={<HomePage />} />
+      <Route path="cart" element={<Cart />}/>
     </Route>
   );
 
-  const router = createBrowserRouter(allRoutes)
+  const router = createBrowserRouter(allRoutes);
 
   return (
     <>
-      <div className='bg-zinc-800'>
+      <div className="bg-zinc-800">
         <RouterProvider router={router} />
       </div>
     </>
   );
 }
 
-export default App
+export default App;
