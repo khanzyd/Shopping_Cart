@@ -8,14 +8,14 @@ const CartItem = ({ cartItem }) => {
   let { id, images, price, title, amount } = cartItem;
   return (
     <div className="flex items-center px-3 py-5 ">
-      <div className="w-36 object-cover bg-black">
+      <div className="md:w-36 sm:w-28 w-24 object-cover select-none">
         <img src={images[0]} alt="title" />
       </div>
-      <div className="ml-10">
-        <h4 className="font-bold text-3xl">{title}</h4>
-        <p className="font-medium text-2xl text-zinc-900">{`$ ${price}`}</p>
+      <div className="ml-10 text-zinc-900 md:max-w-auto sm:max-w-[50%] max-w-[40%] ">
+        <h4 className="font-bold md:text-3xl text-xl ">{title}</h4>
+        <p className="font-medium md:text-2xl text-lg select-none">{`$ ${price}`}</p>
         <button
-          className="font-medium text-3xl mt-2 select-none text-red-600"
+          className="font-medium md:text-2xl text-lg mt-2 select-none text-red-600"
           onClick={() => {
             dispatch(removeItem({ id }));
           }}
@@ -23,20 +23,24 @@ const CartItem = ({ cartItem }) => {
           remove
         </button>
       </div>
-      <div className="flex flex-col text-zinc-950 text-2xl">
-        <SlArrowUp
-          className="font-extrabold"
+      <div className="flex flex-col text-zinc-950 text-2xl ml-auto">
+        <div
+          className="px-3 py-1"
           onClick={() => {
             dispatch(increaseAmount({ id }));
           }}
-        />
+        >
+          <SlArrowUp className="font-extrabold" />
+        </div>
         <p className="text-center font-bold select-none">{amount}</p>
-        <SlArrowDown
-          className="font-extrabold"
+        <div
+          className="px-3 py-1"
           onClick={() => {
             dispatch(decreaseAmount({ id }));
           }}
-        />
+        >
+          <SlArrowDown className="font-extrabold" />
+        </div>
       </div>
     </div>
   );

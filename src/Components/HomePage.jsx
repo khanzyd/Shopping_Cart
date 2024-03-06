@@ -14,10 +14,9 @@ const HomePage = () => {
         dispatch(setProducts(data));
       });
   }, []);
-  console.log(products);
   if (isLoading) {
     return (
-      <div className="h-screen w-full flex justify-center">
+      <div className="min-h-full w-full flex justify-center">
         <h1 className="text-slate-100 text-3xl font-extrabold mt-20">
           Loading....
         </h1>
@@ -27,7 +26,7 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center content-center md:mt-10 mt-5">
+      <div className="flex flex-wrap justify-center content-center pt-5">
         {products.map((item) => {
           return <Card key={item.id} {...item} />;
         })}

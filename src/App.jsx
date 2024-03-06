@@ -16,7 +16,7 @@ function App() {
   const allRoutes = createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<HomePage />} />
-      <Route path="cart" element={<Cart />}/>
+      <Route path="cart" element={<Cart />} />
     </Route>
   );
 
@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-zinc-800">
+      <div className="">
         <RouterProvider router={router} />
       </div>
     </>
